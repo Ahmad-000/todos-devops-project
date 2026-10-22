@@ -1,0 +1,83 @@
+---
+- name: Configure Todo application server
+  hosts: todo_servers
+  become: true
+
+  tasks:
+    - name: Update apt package cache
+      ansible.builtin.apt:
+        update_cache: true
+        cache_valid_time: 3600
+
+    - name: Install Docker and Docker Compose
+      ansible.builtin.apt:
+        name:
+          - docker.io
+          - docker-compose-v2
+        state: present
+
+    - name: Start and enable Docker
+      ansible.builtin.service:
+        name: docker
+        state: started
+        enabled: true
+
+    - name: Create application deployment directory
+      ansible.builtin.file:
+        path: /opt/todo-app
+        state: directory
+        mode: "0755"
+
+    - name: Create Docker Compose configuration
+      ansible.builtin.copy:
+        dest: /opt/todo-app/compose.yaml
+        mode: "0644"
+        content: |
+          services:
+            mongodb:
+              image: mongo:7
+              container_name: todo-mongodb
+              restart: unless-stopped
+              volumes:
+                - todo-mongodb-data:/data/db
+              healthcheck:
+                test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping').ok"]
+                interval: 10s
+                timeout: 5s
+                retries: 5
+
+            backend:
+              image: ahmad459/todo-devops-backend:1.0
+              container_name: todo-backend
+              restart: unless-stopped
+              environment:
+                PORT: "5000"
+                MONGODB_URI: mongodb://mongodb:27017/todo-devops
+              depends_on:
+                mongodb:
+                  condition: service_healthy
+              ports:
+                - "5000:5000"
+
+            frontend:
+              image: ahmad459/todo-devops-frontend:1.0
+              container_name: todo-frontend
+              restart: unless-stopped
+              depends_on:
+                - backend
+              ports:
+                - "80:80"
+
+          volumes:
+            todo-mongodb-data:
+              external: true
+              name: todo-deployment_todo-mongodb-data
+
+    - name: Validate Docker Compose configuration
+      ansible.builtin.command:
+        cmd: docker compose -f /opt/todo-app/compose.yaml config --quiet
+      changed_when: false
+
+    - name: Deploy Todo application
+      ansible.builtin.command:
+        cmd: docker compose -f /opt/todo-app/compose.yaml up -d
