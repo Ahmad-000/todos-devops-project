@@ -24,17 +24,20 @@ function App() {
 
       const data = await response.json();
       setTodos(data);
-    } catch (err) {
+    } catch  {
       setError("Could not connect to the backend. Check that it is running.");
     } finally {
       setLoading(false);
     }
   }
 
-  useEffect(() => {
-    fetchTodos();
-  }, []);
+useEffect(() => {
+  async function loadTodos() {
+    await fetchTodos();
+  }
 
+  loadTodos();
+}, []);
   // Add a new todo
   async function addTodo(event) {
     event.preventDefault();
@@ -60,7 +63,7 @@ function App() {
 
       setTodos((previousTodos) => [newTodo, ...previousTodos]);
       setTitle("");
-    } catch (err) {
+    } catch  {
       setError("Could not add the todo. Please try again.");
     }
   }
@@ -91,7 +94,7 @@ function App() {
           item._id === updatedTodo._id ? updatedTodo : item
         )
       );
-    } catch (err) {
+    } catch  {
       setError("Could not update the todo. Please try again.");
     }
   }
@@ -112,7 +115,7 @@ function App() {
       setTodos((previousTodos) =>
         previousTodos.filter((todo) => todo._id !== id)
       );
-    } catch (err) {
+    } catch  {
       setError("Could not delete the todo. Please try again.");
     }
   }
