@@ -1,0 +1,728 @@
+backend/.dockerignore:1: trailing whitespace.
+[32m+[m[41m[m
+backend/.dockerignore:2: trailing whitespace.
+[32m+[m[32mnode_modules[m[41m[m
+backend/.dockerignore:3: trailing whitespace.
+[32m+[m[32mnpm-debug.log[m[41m[m
+backend/.dockerignore:4: trailing whitespace.
+[32m+[m[32m.env[m[41m[m
+backend/Dockerfile:1: trailing whitespace.
+[32m+[m[41m[m
+backend/Dockerfile:2: trailing whitespace.
+[32m+[m[32mFROM node:22-alpine[m[41m[m
+backend/Dockerfile:3: trailing whitespace.
+[32m+[m[41m[m
+backend/Dockerfile:4: trailing whitespace.
+[32m+[m[32mWORKDIR /app[m[41m[m
+backend/Dockerfile:5: trailing whitespace.
+[32m+[m[41m[m
+backend/Dockerfile:6: trailing whitespace.
+[32m+[m[32mCOPY package*.json ./[m[41m[m
+backend/Dockerfile:7: trailing whitespace.
+[32m+[m[41m[m
+backend/Dockerfile:8: trailing whitespace.
+[32m+[m[32mRUN npm ci --omit=dev[m[41m[m
+backend/Dockerfile:9: trailing whitespace.
+[32m+[m[41m[m
+backend/Dockerfile:10: trailing whitespace.
+[32m+[m[32mCOPY . .[m[41m[m
+backend/Dockerfile:11: trailing whitespace.
+[32m+[m[41m[m
+backend/Dockerfile:12: trailing whitespace.
+[32m+[m[32mEXPOSE 5000[m[41m[m
+backend/Dockerfile:13: trailing whitespace.
+[32m+[m[41m[m
+backend/Dockerfile:14: trailing whitespace.
+[32m+[m[32mCMD ["npm", "start"][m[41m[m
+backend/server.js:1: trailing whitespace.
+[32m+[m[41m[m
+backend/server.js:2: trailing whitespace.
+[32m+[m[32mrequire("dotenv").config();[m[41m[m
+backend/server.js:3: trailing whitespace.
+[32m+[m[41m[m
+backend/server.js:4: trailing whitespace.
+[32m+[m[32mconst express = require("express");[m[41m[m
+backend/server.js:5: trailing whitespace.
+[32m+[m[32mconst mongoose = require("mongoose");[m[41m[m
+backend/server.js:6: trailing whitespace.
+[32m+[m[41m[m
+backend/server.js:7: trailing whitespace.
+[32m+[m[32mconst app = express();[m[41m[m
+backend/server.js:8: trailing whitespace.
+[32m+[m[32mconst PORT = process.env.PORT || 5000;[m[41m[m
+backend/server.js:9: trailing whitespace.
+[32m+[m[32mconst cors = require("cors");[m[41m[m
+backend/server.js:10: trailing whitespace.
+[32m+[m[32m// Middleware[m[41m[m
+backend/server.js:11: trailing whitespace.
+[32m+[m[32mapp.use(express.json());[m[41m[m
+backend/server.js:12: trailing whitespace.
+[32m+[m[32mapp.use(cors({[m[41m[m
+backend/server.js:13: trailing whitespace.
+[32m+[m[32m  origin: "http://localhost:5173",[m[41m[m
+backend/server.js:14: trailing whitespace.
+[32m+[m[32m}));[m[41m[m
+backend/server.js:15: trailing whitespace.
+[32m+[m[41m[m
+backend/server.js:16: trailing whitespace.
+[32m+[m[32mapp.use(express.json());[m[41m[m
+backend/server.js:17: trailing whitespace.
+[32m+[m[32m// Todo Schema[m[41m[m
+backend/server.js:18: trailing whitespace.
+[32m+[m[32mconst todoSchema = new mongoose.Schema([m[41m[m
+backend/server.js:19: trailing whitespace.
+[32m+[m[32m  {[m[41m[m
+backend/server.js:20: trailing whitespace.
+[32m+[m[32m    title: {[m[41m[m
+backend/server.js:21: trailing whitespace.
+[32m+[m[32m      type: String,[m[41m[m
+backend/server.js:22: trailing whitespace.
+[32m+[m[32m      required: [true, "Todo title is required"],[m[41m[m
+backend/server.js:23: trailing whitespace.
+[32m+[m[32m      trim: true,[m[41m[m
+backend/server.js:24: trailing whitespace.
+[32m+[m[32m    },[m[41m[m
+backend/server.js:25: trailing whitespace.
+[32m+[m[32m    completed: {[m[41m[m
+backend/server.js:26: trailing whitespace.
+[32m+[m[32m      type: Boolean,[m[41m[m
+backend/server.js:27: trailing whitespace.
+[32m+[m[32m      default: false,[m[41m[m
+backend/server.js:28: trailing whitespace.
+[32m+[m[32m    },[m[41m[m
+backend/server.js:29: trailing whitespace.
+[32m+[m[32m  },[m[41m[m
+backend/server.js:30: trailing whitespace.
+[32m+[m[32m  {[m[41m[m
+backend/server.js:31: trailing whitespace.
+[32m+[m[32m    timestamps: true,[m[41m[m
+backend/server.js:32: trailing whitespace.
+[32m+[m[32m  }[m[41m[m
+backend/server.js:33: trailing whitespace.
+[32m+[m[32m);[m[41m[m
+backend/server.js:34: trailing whitespace.
+[32m+[m[41m[m
+backend/server.js:35: trailing whitespace.
+[32m+[m[32m// Todo Model[m[41m[m
+backend/server.js:36: trailing whitespace.
+[32m+[m[32mconst Todo = mongoose.model("Todo", todoSchema);[m[41m[m
+backend/server.js:37: trailing whitespace.
+[32m+[m[41m[m
+backend/server.js:38: trailing whitespace.
+[32m+[m[32m// Home Route[m[41m[m
+backend/server.js:39: trailing whitespace.
+[32m+[m[32mapp.get("/", (req, res) => {[m[41m[m
+backend/server.js:40: trailing whitespace.
+[32m+[m[32m  res.send("Todo List API is running!");[m[41m[m
+backend/server.js:41: trailing whitespace.
+[32m+[m[32m});[m[41m[m
+backend/server.js:42: trailing whitespace.
+[32m+[m[41m[m
+backend/server.js:43: trailing whitespace.
+[32m+[m[32m// GET: Fetch all todos[m[41m[m
+backend/server.js:44: trailing whitespace.
+[32m+[m[32mapp.get("/api/todos", async (req, res) => {[m[41m[m
+backend/server.js:45: trailing whitespace.
+[32m+[m[32m  try {[m[41m[m
+backend/server.js:46: trailing whitespace.
+[32m+[m[32m    const todos = await Todo.find().sort({ createdAt: -1 });[m[41m[m
+backend/server.js:47: trailing whitespace.
+[32m+[m[32m    res.status(200).json(todos);[m[41m[m
+backend/server.js:48: trailing whitespace.
+[32m+[m[32m  } catch (error) {[m[41m[m
+backend/server.js:49: trailing whitespace.
+[32m+[m[32m    res.status(500).json({ message: "Failed to fetch todos" });[m[41m[m
+backend/server.js:50: trailing whitespace.
+[32m+[m[32m  }[m[41m[m
+backend/server.js:51: trailing whitespace.
+[32m+[m[32m});[m[41m[m
+backend/server.js:52: trailing whitespace.
+[32m+[m[41m[m
+backend/server.js:53: trailing whitespace.
+[32m+[m[32m// POST: Create a todo[m[41m[m
+backend/server.js:54: trailing whitespace.
+[32m+[m[32mapp.post("/api/todos", async (req, res) => {[m[41m[m
+backend/server.js:55: trailing whitespace.
+[32m+[m[32m  try {[m[41m[m
+backend/server.js:56: trailing whitespace.
+[32m+[m[32m    const { title } = req.body;[m[41m[m
+backend/server.js:57: trailing whitespace.
+[32m+[m[41m[m
+backend/server.js:58: trailing whitespace.
+[32m+[m[32m    if (typeof title !== "string" || !title.trim()) {[m[41m[m
+backend/server.js:59: trailing whitespace.
+[32m+[m[32m      return res.status(400).json({[m[41m[m
+backend/server.js:60: trailing whitespace.
+[32m+[m[32m        message: "Todo title is required",[m[41m[m
+backend/server.js:61: trailing whitespace.
+[32m+[m[32m      });[m[41m[m
+backend/server.js:62: trailing whitespace.
+[32m+[m[32m    }[m[41m[m
+backend/server.js:63: trailing whitespace.
+[32m+[m[41m[m
+backend/server.js:64: trailing whitespace.
+[32m+[m[32m    const todo = await Todo.create({[m[41m[m
+backend/server.js:65: trailing whitespace.
+[32m+[m[32m      title: title.trim(),[m[41m[m
+backend/server.js:66: trailing whitespace.
+[32m+[m[32m    });[m[41m[m
+backend/server.js:67: trailing whitespace.
+[32m+[m[41m[m
+backend/server.js:68: trailing whitespace.
+[32m+[m[32m    res.status(201).json(todo);[m[41m[m
+backend/server.js:69: trailing whitespace.
+[32m+[m[32m  } catch (error) {[m[41m[m
+backend/server.js:70: trailing whitespace.
+[32m+[m[32m    res.status(500).json({ message: "Failed to create todo" });[m[41m[m
+backend/server.js:71: trailing whitespace.
+[32m+[m[32m  }[m[41m[m
+backend/server.js:72: trailing whitespace.
+[32m+[m[32m});[m[41m[m
+backend/server.js:73: trailing whitespace.
+[32m+[m[41m[m
+backend/server.js:74: trailing whitespace.
+[32m+[m[32m// PATCH: Update a todo[m[41m[m
+backend/server.js:75: trailing whitespace.
+[32m+[m[32mapp.patch("/api/todos/:id", async (req, res) => {[m[41m[m
+backend/server.js:76: trailing whitespace.
+[32m+[m[32m  try {[m[41m[m
+backend/server.js:77: trailing whitespace.
+[32m+[m[32m    const updates = {};[m[41m[m
+backend/server.js:78: trailing whitespace.
+[32m+[m[41m[m
+backend/server.js:79: trailing whitespace.
+[32m+[m[32m    if (typeof req.body.completed === "boolean") {[m[41m[m
+backend/server.js:80: trailing whitespace.
+[32m+[m[32m      updates.completed = req.body.completed;[m[41m[m
+backend/server.js:81: trailing whitespace.
+[32m+[m[32m    }[m[41m[m
+backend/server.js:82: trailing whitespace.
+[32m+[m[41m[m
+backend/server.js:83: trailing whitespace.
+[32m+[m[32m    if (typeof req.body.title === "string" && req.body.title.trim()) {[m[41m[m
+backend/server.js:84: trailing whitespace.
+[32m+[m[32m      updates.title = req.body.title.trim();[m[41m[m
+backend/server.js:85: trailing whitespace.
+[32m+[m[32m    }[m[41m[m
+backend/server.js:86: trailing whitespace.
+[32m+[m[41m[m
+backend/server.js:87: trailing whitespace.
+[32m+[m[32m    if (Object.keys(updates).length === 0) {[m[41m[m
+backend/server.js:88: trailing whitespace.
+[32m+[m[32m      return res.status(400).json({[m[41m[m
+backend/server.js:89: trailing whitespace.
+[32m+[m[32m        message: "Provide a valid title or completed value",[m[41m[m
+backend/server.js:90: trailing whitespace.
+[32m+[m[32m      });[m[41m[m
+backend/server.js:91: trailing whitespace.
+[32m+[m[32m    }[m[41m[m
+backend/server.js:92: trailing whitespace.
+[32m+[m[41m[m
+backend/server.js:93: trailing whitespace.
+[32m+[m[32m    const todo = await Todo.findByIdAndUpdate([m[41m[m
+backend/server.js:94: trailing whitespace.
+[32m+[m[32m      req.params.id,[m[41m[m
+backend/server.js:95: trailing whitespace.
+[32m+[m[32m      updates,[m[41m[m
+backend/server.js:96: trailing whitespace.
+[32m+[m[32m      { new: true, runValidators: true }[m[41m[m
+backend/server.js:97: trailing whitespace.
+[32m+[m[32m    );[m[41m[m
+backend/server.js:98: trailing whitespace.
+[32m+[m[41m[m
+backend/server.js:99: trailing whitespace.
+[32m+[m[32m    if (!todo) {[m[41m[m
+backend/server.js:100: trailing whitespace.
+[32m+[m[32m      return res.status(404).json({ message: "Todo not found" });[m[41m[m
+backend/server.js:101: trailing whitespace.
+[32m+[m[32m    }[m[41m[m
+backend/server.js:102: trailing whitespace.
+[32m+[m[41m[m
+backend/server.js:103: trailing whitespace.
+[32m+[m[32m    res.status(200).json(todo);[m[41m[m
+backend/server.js:104: trailing whitespace.
+[32m+[m[32m  } catch (error) {[m[41m[m
+backend/server.js:105: trailing whitespace.
+[32m+[m[32m    if (error.name === "CastError") {[m[41m[m
+backend/server.js:106: trailing whitespace.
+[32m+[m[32m      return res.status(400).json({ message: "Invalid todo ID" });[m[41m[m
+backend/server.js:107: trailing whitespace.
+[32m+[m[32m    }[m[41m[m
+backend/server.js:108: trailing whitespace.
+[32m+[m[41m[m
+backend/server.js:109: trailing whitespace.
+[32m+[m[32m    res.status(500).json({ message: "Failed to update todo" });[m[41m[m
+backend/server.js:110: trailing whitespace.
+[32m+[m[32m  }[m[41m[m
+backend/server.js:111: trailing whitespace.
+[32m+[m[32m});[m[41m[m
+backend/server.js:112: trailing whitespace.
+[32m+[m[41m[m
+backend/server.js:113: trailing whitespace.
+[32m+[m[32m// DELETE: Delete a todo[m[41m[m
+backend/server.js:114: trailing whitespace.
+[32m+[m[32mapp.delete("/api/todos/:id", async (req, res) => {[m[41m[m
+backend/server.js:115: trailing whitespace.
+[32m+[m[32m  try {[m[41m[m
+backend/server.js:116: trailing whitespace.
+[32m+[m[32m    const todo = await Todo.findByIdAndDelete(req.params.id);[m[41m[m
+backend/server.js:117: trailing whitespace.
+[32m+[m[41m[m
+backend/server.js:118: trailing whitespace.
+[32m+[m[32m    if (!todo) {[m[41m[m
+backend/server.js:119: trailing whitespace.
+[32m+[m[32m      return res.status(404).json({ message: "Todo not found" });[m[41m[m
+backend/server.js:120: trailing whitespace.
+[32m+[m[32m    }[m[41m[m
+backend/server.js:121: trailing whitespace.
+[32m+[m[41m[m
+backend/server.js:122: trailing whitespace.
+[32m+[m[32m    res.status(200).json({[m[41m[m
+backend/server.js:123: trailing whitespace.
+[32m+[m[32m      message: "Todo deleted successfully",[m[41m[m
+backend/server.js:124: trailing whitespace.
+[32m+[m[32m      todo,[m[41m[m
+backend/server.js:125: trailing whitespace.
+[32m+[m[32m    });[m[41m[m
+backend/server.js:126: trailing whitespace.
+[32m+[m[32m  } catch (error) {[m[41m[m
+backend/server.js:127: trailing whitespace.
+[32m+[m[32m    if (error.name === "CastError") {[m[41m[m
+backend/server.js:128: trailing whitespace.
+[32m+[m[32m      return res.status(400).json({ message: "Invalid todo ID" });[m[41m[m
+backend/server.js:129: trailing whitespace.
+[32m+[m[32m    }[m[41m[m
+backend/server.js:130: trailing whitespace.
+[32m+[m[41m[m
+backend/server.js:131: trailing whitespace.
+[32m+[m[32m    res.status(500).json({ message: "Failed to delete todo" });[m[41m[m
+backend/server.js:132: trailing whitespace.
+[32m+[m[32m  }[m[41m[m
+backend/server.js:133: trailing whitespace.
+[32m+[m[32m});[m[41m[m
+backend/server.js:134: trailing whitespace.
+[32m+[m[41m[m
+backend/server.js:135: trailing whitespace.
+[32m+[m[32m// Connect to MongoDB and start server[m[41m[m
+backend/server.js:136: trailing whitespace.
+[32m+[m[32masync function startServer() {[m[41m[m
+backend/server.js:137: trailing whitespace.
+[32m+[m[32m  try {[m[41m[m
+backend/server.js:138: trailing whitespace.
+[32m+[m[32m    await mongoose.connect([m[41m[m
+backend/server.js:139: trailing whitespace.
+[32m+[m[32m      process.env.MONGODB_URI ||[m[41m[m
+backend/server.js:140: trailing whitespace.
+[32m+[m[32m        "mongodb://127.0.0.1:27017/todo_devops"[m[41m[m
+backend/server.js:141: trailing whitespace.
+[32m+[m[32m    );[m[41m[m
+backend/server.js:142: trailing whitespace.
+[32m+[m[41m[m
+backend/server.js:143: trailing whitespace.
+[32m+[m[32m    console.log("MongoDB connected successfully");[m[41m[m
+backend/server.js:144: trailing whitespace.
+[32m+[m[41m[m
+backend/server.js:145: trailing whitespace.
+[32m+[m[32m    app.listen(PORT, () => {[m[41m[m
+backend/server.js:146: trailing whitespace.
+[32m+[m[32m      console.log(`Todo API running at http://localhost:${PORT}`);[m[41m[m
+backend/server.js:147: trailing whitespace.
+[32m+[m[32m    });[m[41m[m
+backend/server.js:148: trailing whitespace.
+[32m+[m[32m  } catch (error) {[m[41m[m
+backend/server.js:149: trailing whitespace.
+[32m+[m[32m    console.error("MongoDB connection failed:", error.message);[m[41m[m
+backend/server.js:150: trailing whitespace.
+[32m+[m[32m    process.exit(1);[m[41m[m
+backend/server.js:151: trailing whitespace.
+[32m+[m[32m  }[m[41m[m
+backend/server.js:152: trailing whitespace.
+[32m+[m[32m}[m[41m[m
+backend/server.js:153: trailing whitespace.
+[32m+[m[41m[m
+backend/server.js:154: trailing whitespace.
+[32m+[m[32mstartServer();[m[41m[m
+docker-compose.yml:1: trailing whitespace.
+[32m+[m[41m[m
+docker-compose.yml:2: trailing whitespace.
+[32m+[m[32mservices:[m[41m[m
+docker-compose.yml:3: trailing whitespace.
+[32m+[m[32m  mongodb:[m[41m[m
+docker-compose.yml:4: trailing whitespace.
+[32m+[m[32m    image: mongo:7[m[41m[m
+docker-compose.yml:5: trailing whitespace.
+[32m+[m[32m    restart: unless-stopped[m[41m[m
+docker-compose.yml:6: trailing whitespace.
+[32m+[m[32m    volumes:[m[41m[m
+docker-compose.yml:7: trailing whitespace.
+[32m+[m[32m      - todo-mongodb-data:/data/db[m[41m[m
+docker-compose.yml:8: trailing whitespace.
+[32m+[m[32m    healthcheck:[m[41m[m
+docker-compose.yml:9: trailing whitespace.
+[32m+[m[32m      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping').ok"][m[41m[m
+docker-compose.yml:10: trailing whitespace.
+[32m+[m[32m      interval: 10s[m[41m[m
+docker-compose.yml:11: trailing whitespace.
+[32m+[m[32m      timeout: 5s[m[41m[m
+docker-compose.yml:12: trailing whitespace.
+[32m+[m[32m      retries: 5[m[41m[m
+docker-compose.yml:13: trailing whitespace.
+[32m+[m[41m[m
+docker-compose.yml:14: trailing whitespace.
+[32m+[m[32m  backend:[m[41m[m
+docker-compose.yml:15: trailing whitespace.
+[32m+[m[32m    build: ./backend[m[41m[m
+docker-compose.yml:16: trailing whitespace.
+[32m+[m[32m    restart: unless-stopped[m[41m[m
+docker-compose.yml:17: trailing whitespace.
+[32m+[m[32m    environment:[m[41m[m
+docker-compose.yml:18: trailing whitespace.
+[32m+[m[32m      PORT: 5000[m[41m[m
+docker-compose.yml:19: trailing whitespace.
+[32m+[m[32m      MONGODB_URI: mongodb://mongodb:27017/todo_devops[m[41m[m
+docker-compose.yml:20: trailing whitespace.
+[32m+[m[32m    depends_on:[m[41m[m
+docker-compose.yml:21: trailing whitespace.
+[32m+[m[32m      mongodb:[m[41m[m
+docker-compose.yml:22: trailing whitespace.
+[32m+[m[32m        condition: service_healthy[m[41m[m
+docker-compose.yml:23: trailing whitespace.
+[32m+[m[32m    expose:[m[41m[m
+docker-compose.yml:24: trailing whitespace.
+[32m+[m[32m      - "5000"[m[41m[m
+docker-compose.yml:25: trailing whitespace.
+[32m+[m[41m[m
+docker-compose.yml:26: trailing whitespace.
+[32m+[m[32m  frontend:[m[41m[m
+docker-compose.yml:27: trailing whitespace.
+[32m+[m[32m    build: ./frontend[m[41m[m
+docker-compose.yml:28: trailing whitespace.
+[32m+[m[32m    restart: unless-stopped[m[41m[m
+docker-compose.yml:29: trailing whitespace.
+[32m+[m[32m    ports:[m[41m[m
+docker-compose.yml:30: trailing whitespace.
+[32m+[m[32m      - "8080:80"[m[41m[m
+docker-compose.yml:31: trailing whitespace.
+[32m+[m[32m    depends_on:[m[41m[m
+docker-compose.yml:32: trailing whitespace.
+[32m+[m[32m      - backend[m[41m[m
+docker-compose.yml:33: trailing whitespace.
+[32m+[m[41m[m
+docker-compose.yml:34: trailing whitespace.
+[32m+[m[32mvolumes:[m[41m[m
+docker-compose.yml:35: trailing whitespace.
+[32m+[m[32m  todo-mongodb-data:[m[41m[m
+docker-compose.yml:36: trailing whitespace.
+[32m+[m[32m    external: true[m[41m[m
+frontend/.dockerignore:1: trailing whitespace.
+[32m+[m[32mnode_modules[m[41m[m
+frontend/.dockerignore:2: trailing whitespace.
+[32m+[m[32mdist[m[41m[m
+frontend/.dockerignore:3: trailing whitespace.
+[32m+[m[32m.git[m[41m[m
+frontend/Dockerfile:1: trailing whitespace.
+[32m+[m[41m[m
+frontend/Dockerfile:2: trailing whitespace.
+[32m+[m[32m# Stage 1: Build the React application[m[41m[m
+frontend/Dockerfile:3: trailing whitespace.
+[32m+[m[32mFROM node:22-alpine AS build[m[41m[m
+frontend/Dockerfile:4: trailing whitespace.
+[32m+[m[41m[m
+frontend/Dockerfile:5: trailing whitespace.
+[32m+[m[32mWORKDIR /app[m[41m[m
+frontend/Dockerfile:6: trailing whitespace.
+[32m+[m[41m[m
+frontend/Dockerfile:7: trailing whitespace.
+[32m+[m[32mCOPY package*.json ./[m[41m[m
+frontend/Dockerfile:8: trailing whitespace.
+[32m+[m[32mRUN npm ci[m[41m[m
+frontend/Dockerfile:9: trailing whitespace.
+[32m+[m[41m[m
+frontend/Dockerfile:10: trailing whitespace.
+[32m+[m[32mCOPY . .[m[41m[m
+frontend/Dockerfile:11: trailing whitespace.
+[32m+[m[32mRUN npm run build[m[41m[m
+frontend/Dockerfile:12: trailing whitespace.
+[32m+[m[41m[m
+frontend/Dockerfile:13: trailing whitespace.
+[32m+[m[32m# Stage 2: Serve the built app using Nginx[m[41m[m
+frontend/Dockerfile:14: trailing whitespace.
+[32m+[m[32mFROM nginx:alpine[m[41m[m
+frontend/Dockerfile:15: trailing whitespace.
+[32m+[m[41m[m
+frontend/Dockerfile:16: trailing whitespace.
+[32m+[m[32mCOPY nginx.conf /etc/nginx/conf.d/default.conf[m[41m[m
+frontend/Dockerfile:17: trailing whitespace.
+[32m+[m[32mCOPY --from=build /app/dist /usr/share/nginx/html[m[41m[m
+frontend/Dockerfile:18: trailing whitespace.
+[32m+[m[41m[m
+frontend/Dockerfile:19: trailing whitespace.
+[32m+[m[32mEXPOSE 80[m[41m[m
+frontend/Dockerfile:20: trailing whitespace.
+[32m+[m[41m[m
+frontend/Dockerfile:21: trailing whitespace.
+[32m+[m[32mCMD ["nginx", "-g", "daemon off;"][m[41m[m
+frontend/nginx.conf:1: trailing whitespace.
+[32m+[m[41m[m
+frontend/nginx.conf:2: trailing whitespace.
+[32m+[m[32mserver {[m[41m[m
+frontend/nginx.conf:3: trailing whitespace.
+[32m+[m[32m    listen 80;[m[41m[m
+frontend/nginx.conf:4: trailing whitespace.
+[32m+[m[32m    server_name _;[m[41m[m
+frontend/nginx.conf:5: trailing whitespace.
+[32m+[m[41m[m
+frontend/nginx.conf:6: trailing whitespace.
+[32m+[m[32m    root /usr/share/nginx/html;[m[41m[m
+frontend/nginx.conf:7: trailing whitespace.
+[32m+[m[32m    index index.html;[m[41m[m
+frontend/nginx.conf:8: trailing whitespace.
+[32m+[m[41m[m
+frontend/nginx.conf:9: trailing whitespace.
+[32m+[m[32m    location / {[m[41m[m
+frontend/nginx.conf:10: trailing whitespace.
+[32m+[m[32m        try_files $uri $uri/ /index.html;[m[41m[m
+frontend/nginx.conf:11: trailing whitespace.
+[32m+[m[32m    }[m[41m[m
+frontend/nginx.conf:12: trailing whitespace.
+[32m+[m[41m[m
+frontend/nginx.conf:13: trailing whitespace.
+[32m+[m[32m    location /api/ {[m[41m[m
+frontend/nginx.conf:14: trailing whitespace.
+[32m+[m[32m        proxy_pass http://backend:5000;[m[41m[m
+frontend/nginx.conf:15: trailing whitespace.
+[32m+[m[32m        proxy_set_header Host $host;[m[41m[m
+frontend/nginx.conf:16: trailing whitespace.
+[32m+[m[32m        proxy_set_header X-Real-IP $remote_addr;[m[41m[m
+frontend/nginx.conf:17: trailing whitespace.
+[32m+[m[32m        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;[m[41m[m
+frontend/nginx.conf:18: trailing whitespace.
+[32m+[m[32m    }[m[41m[m
+frontend/nginx.conf:19: trailing whitespace.
+[32m+[m[32m}[m[41m[m
+terraform/main.tf:1: trailing whitespace.
+[32m+[m[41m[m
+terraform/main.tf:2: trailing whitespace.
+[32m+[m[32m# Find the latest Ubuntu 24.04 LTS AMI[m[41m[m
+terraform/main.tf:3: trailing whitespace.
+[32m+[m[32mdata "aws_ami" "ubuntu" {[m[41m[m
+terraform/main.tf:4: trailing whitespace.
+[32m+[m[32m  most_recent = true[m[41m[m
+terraform/main.tf:5: trailing whitespace.
+[32m+[m[32m  owners      = ["099720109477"][m[41m[m
+terraform/main.tf:6: trailing whitespace.
+[32m+[m[41m[m
+terraform/main.tf:7: trailing whitespace.
+[32m+[m[32m  filter {[m[41m[m
+terraform/main.tf:8: trailing whitespace.
+[32m+[m[32m    name   = "name"[m[41m[m
+terraform/main.tf:9: trailing whitespace.
+[32m+[m[32m    values = ["ubuntu/images/hvm-ssd-gp3/ubuntu-noble-24.04-amd64-server-*"][m[41m[m
+terraform/main.tf:10: trailing whitespace.
+[32m+[m[32m  }[m[41m[m
+terraform/main.tf:11: trailing whitespace.
+[32m+[m[41m[m
+terraform/main.tf:12: trailing whitespace.
+[32m+[m[32m  filter {[m[41m[m
+terraform/main.tf:13: trailing whitespace.
+[32m+[m[32m    name   = "virtualization-type"[m[41m[m
+terraform/main.tf:14: trailing whitespace.
+[32m+[m[32m    values = ["hvm"][m[41m[m
+terraform/main.tf:15: trailing whitespace.
+[32m+[m[32m  }[m[41m[m
+terraform/main.tf:16: trailing whitespace.
+[32m+[m[32m}[m[41m[m
+terraform/main.tf:17: trailing whitespace.
+[32m+[m[41m[m
+terraform/main.tf:18: trailing whitespace.
+[32m+[m[32m# Create a security group[m[41m[m
+terraform/main.tf:19: trailing whitespace.
+[32m+[m[32mresource "aws_security_group" "todo_sg" {[m[41m[m
+terraform/main.tf:20: trailing whitespace.
+[32m+[m[32m  name        = "${var.project_name}-sg"[m[41m[m
+terraform/main.tf:21: trailing whitespace.
+[32m+[m[32m  description = "Security group for Todo DevOps server"[m[41m[m
+terraform/main.tf:22: trailing whitespace.
+[32m+[m[41m[m
+terraform/main.tf:23: trailing whitespace.
+[32m+[m[32m  # SSH access - restrict to your own IP later[m[41m[m
+terraform/main.tf:24: trailing whitespace.
+[32m+[m[32m  ingress {[m[41m[m
+terraform/main.tf:25: trailing whitespace.
+[32m+[m[32m    description = "SSH access"[m[41m[m
+terraform/main.tf:26: trailing whitespace.
+[32m+[m[32m    from_port   = 22[m[41m[m
+terraform/main.tf:27: trailing whitespace.
+[32m+[m[32m    to_port     = 22[m[41m[m
+terraform/main.tf:28: trailing whitespace.
+[32m+[m[32m    protocol    = "tcp"[m[41m[m
+terraform/main.tf:29: trailing whitespace.
+[32m+[m[32m    cidr_blocks = ["${var.admin_ip}/32"][m[41m[m
+terraform/main.tf:30: trailing whitespace.
+[32m+[m[32m  }[m[41m[m
+terraform/main.tf:31: trailing whitespace.
+[32m+[m[41m[m
+terraform/main.tf:32: trailing whitespace.
+[32m+[m[32m  # Public website access[m[41m[m
+terraform/main.tf:33: trailing whitespace.
+[32m+[m[32m  ingress {[m[41m[m
+terraform/main.tf:34: trailing whitespace.
+[32m+[m[32m    description = "HTTP website"[m[41m[m
+terraform/main.tf:35: trailing whitespace.
+[32m+[m[32m    from_port   = 80[m[41m[m
+terraform/main.tf:36: trailing whitespace.
+[32m+[m[32m    to_port     = 80[m[41m[m
+terraform/main.tf:37: trailing whitespace.
+[32m+[m[32m    protocol    = "tcp"[m[41m[m
+terraform/main.tf:38: trailing whitespace.
+[32m+[m[32m    cidr_blocks = ["0.0.0.0/0"][m[41m[m
+terraform/main.tf:39: trailing whitespace.
+[32m+[m[32m  }[m[41m[m
+terraform/main.tf:40: trailing whitespace.
+[32m+[m[41m[m
+terraform/main.tf:41: trailing whitespace.
+[32m+[m[32m  egress {[m[41m[m
+terraform/main.tf:42: trailing whitespace.
+[32m+[m[32m    from_port   = 0[m[41m[m
+terraform/main.tf:43: trailing whitespace.
+[32m+[m[32m    to_port     = 0[m[41m[m
+terraform/main.tf:44: trailing whitespace.
+[32m+[m[32m    protocol    = "-1"[m[41m[m
+terraform/main.tf:45: trailing whitespace.
+[32m+[m[32m    cidr_blocks = ["0.0.0.0/0"][m[41m[m
+terraform/main.tf:46: trailing whitespace.
+[32m+[m[32m  }[m[41m[m
+terraform/main.tf:47: trailing whitespace.
+[32m+[m[41m[m
+terraform/main.tf:48: trailing whitespace.
+[32m+[m[32m  tags = {[m[41m[m
+terraform/main.tf:49: trailing whitespace.
+[32m+[m[32m    Name    = "${var.project_name}-sg"[m[41m[m
+terraform/main.tf:50: trailing whitespace.
+[32m+[m[32m    Project = var.project_name[m[41m[m
+terraform/main.tf:51: trailing whitespace.
+[32m+[m[32m  }[m[41m[m
+terraform/main.tf:52: trailing whitespace.
+[32m+[m[32m}[m[41m[m
+terraform/main.tf:53: trailing whitespace.
+[32m+[m[41m[m
+terraform/main.tf:54: trailing whitespace.
+[32m+[m[32mresource "aws_key_pair" "todo_key" {[m[41m[m
+terraform/main.tf:55: trailing whitespace.
+[32m+[m[32m  key_name   = "${var.project_name}-key"[m[41m[m
+terraform/main.tf:56: trailing whitespace.
+[32m+[m[32m  public_key = file(pathexpand(var.public_key_path))[m[41m[m
+terraform/main.tf:57: trailing whitespace.
+[32m+[m[32m}[m[41m[m
+terraform/main.tf:58: trailing whitespace.
+[32m+[m[41m[m
+terraform/main.tf:59: trailing whitespace.
+[32m+[m[32m# Create EC2 instance[m[41m[m
+terraform/main.tf:60: trailing whitespace.
+[32m+[m[32mresource "aws_instance" "todo_server" {[m[41m[m
+terraform/main.tf:61: trailing whitespace.
+[32m+[m[32m  ami                    = data.aws_ami.ubuntu.id[m[41m[m
+terraform/main.tf:62: trailing whitespace.
+[32m+[m[32m  instance_type          = var.instance_type[m[41m[m
+terraform/main.tf:63: trailing whitespace.
+[32m+[m[32m  vpc_security_group_ids = [aws_security_group.todo_sg.id][m[41m[m
+terraform/main.tf:64: trailing whitespace.
+[32m+[m[32m  key_name               = aws_key_pair.todo_key.key_name[m[41m[m
+terraform/main.tf:65: trailing whitespace.
+[32m+[m[32m  root_block_device {[m[41m[m
+terraform/main.tf:66: trailing whitespace.
+[32m+[m[32m    volume_size = 8[m[41m[m
+terraform/main.tf:67: trailing whitespace.
+[32m+[m[32m    volume_type = "gp3"[m[41m[m
+terraform/main.tf:68: trailing whitespace.
+[32m+[m[32m  }[m[41m[m
+terraform/main.tf:69: trailing whitespace.
+[32m+[m[41m[m
+terraform/main.tf:70: trailing whitespace.
+[32m+[m[32m  tags = {[m[41m[m
+terraform/main.tf:71: trailing whitespace.
+[32m+[m[32m    Name    = "${var.project_name}-server"[m[41m[m
+terraform/main.tf:72: trailing whitespace.
+[32m+[m[32m    Project = var.project_name[m[41m[m
+terraform/main.tf:73: trailing whitespace.
+[32m+[m[32m  }[m[41m[m
+terraform/main.tf:74: trailing whitespace.
+[32m+[m[32m}[m[41m[m
+terraform/provider.tf:1: trailing whitespace.
+[32m+[m[32mprovider "aws" {[m[41m[m
+terraform/provider.tf:2: trailing whitespace.
+[32m+[m[32m  region  = var.aws_region[m[41m[m
+terraform/provider.tf:3: trailing whitespace.
+[32m+[m[32m  profile = "todo-devops-process"[m[41m[m
+terraform/variables.tf:1: trailing whitespace.
+[32m+[m[32mvariable "aws_region" {[m[41m[m
+terraform/variables.tf:2: trailing whitespace.
+[32m+[m[32m  description = "AWS region for Todo DevOps infrastructure"[m[41m[m
+terraform/variables.tf:3: trailing whitespace.
+[32m+[m[32m  type        = string[m[41m[m
+terraform/variables.tf:4: trailing whitespace.
+[32m+[m[32m  default     = "eu-north-1"[m[41m[m
+terraform/variables.tf:5: trailing whitespace.
+[32m+[m[32m}[m[41m[m
+terraform/variables.tf:6: trailing whitespace.
+[32m+[m[41m[m
+terraform/variables.tf:7: trailing whitespace.
+[32m+[m[32mvariable "instance_type" {[m[41m[m
+terraform/variables.tf:8: trailing whitespace.
+[32m+[m[32m  description = "EC2 instance type"[m[41m[m
+terraform/variables.tf:9: trailing whitespace.
+[32m+[m[32m  type        = string[m[41m[m
+terraform/variables.tf:10: trailing whitespace.
+[32m+[m[32m  default     = "t3.micro"[m[41m[m
+terraform/variables.tf:11: trailing whitespace.
+[32m+[m[32m}[m[41m[m
+terraform/variables.tf:12: trailing whitespace.
+[32m+[m[41m[m
+terraform/variables.tf:13: trailing whitespace.
+[32m+[m[32mvariable "project_name" {[m[41m[m
+terraform/variables.tf:14: trailing whitespace.
+[32m+[m[32m  description = "Name of the Todo DevOps project"[m[41m[m
+terraform/variables.tf:15: trailing whitespace.
+[32m+[m[32m  type        = string[m[41m[m
+terraform/variables.tf:16: trailing whitespace.
+[32m+[m[32m  default     = "todo-devops"[m[41m[m
+terraform/variables.tf:17: trailing whitespace.
+[32m+[m[32m}[m[41m[m
+terraform/variables.tf:18: trailing whitespace.
+[32m+[m[41m[m
+terraform/variables.tf:19: trailing whitespace.
+[32m+[m[32mvariable "public_key_path" {[m[41m[m
+terraform/variables.tf:20: trailing whitespace.
+[32m+[m[32m  description = "Path to the SSH public key"[m[41m[m
+terraform/variables.tf:21: trailing whitespace.
+[32m+[m[32m  type        = string[m[41m[m
+terraform/variables.tf:22: trailing whitespace.
+[32m+[m[32m  default     = "~/.ssh/todo-devops-key.pub"[m[41m[m
+terraform/variables.tf:23: trailing whitespace.
+[32m+[m[32m}[m[41m[m
+terraform/variables.tf:24: trailing whitespace.
+[32m+[m[41m[m
+terraform/variables.tf:25: trailing whitespace.
+[32m+[m[32mvariable "admin_ip" {[m[41m[m
+terraform/variables.tf:26: trailing whitespace.
+[32m+[m[32m  description = "Your public IP address allowed for SSH"[m[41m[m
+terraform/variables.tf:27: trailing whitespace.
+[32m+[m[32m  type        = string[m[41m[m
+terraform/versions.tf:1: trailing whitespace.
+[32m+[m[32mterraform {[m[41m[m
+terraform/versions.tf:2: trailing whitespace.
+[32m+[m[32m  required_version = ">= 1.5.0"[m[41m[m
+terraform/versions.tf:3: trailing whitespace.
+[32m+[m[41m[m
+terraform/versions.tf:4: trailing whitespace.
+[32m+[m[32m  required_providers {[m[41m[m
+terraform/versions.tf:5: trailing whitespace.
+[32m+[m[32m    aws = {[m[41m[m
+terraform/versions.tf:6: trailing whitespace.
+[32m+[m[32m      source  = "hashicorp/aws"[m[41m[m
+terraform/versions.tf:7: trailing whitespace.
+[32m+[m[32m      version = "~> 5.0"[m[41m[m
+terraform/versions.tf:8: trailing whitespace.
+[32m+[m[32m    }[m[41m[m
+terraform/versions.tf:9: trailing whitespace.
+[32m+[m[32m  }[m[41m[m
