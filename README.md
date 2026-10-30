@@ -1,5 +1,13 @@
-<!-- HEADER -->
+<!-- PROJECT BANNER -->
 <div align="center">
+
+  <img
+    src="./Muhammad%20Ahmed%20Raza%20Todos%20Devops%20Project%20Banner.jpg"
+    alt="Muhammad Ahmed Raza - Todo DevOps Project Banner"
+    width="100%"
+  />
+
+  <br/>
 
 # ⚡ Todo DevOps Project
 
